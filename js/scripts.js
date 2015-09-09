@@ -1,4 +1,12 @@
-
+var checkString = function(inputString) {
+  var finalString = '';
+  var wordArray = inputString.split(' ');
+  wordArray.forEach(function(word) {
+    finalString = finalString.concat((translator(word)) + ' ')
+    console.log(finalString);
+  });
+  return finalString.toLowerCase().trim();
+}
 var translator = function(text) {
   var splitText = text.split('');
 
@@ -22,6 +30,7 @@ var translator = function(text) {
         }
       }
       i = splitText.length;
+      splitText.push('ay')
       return splitText.join('');
     }
   }
