@@ -1,6 +1,6 @@
 var createArray = function(number) {
   var newArr = [];
-  var i = 1;
+  var i = 2;
   while (i <= number ) {
     newArr.push(i);
     i++;
@@ -9,7 +9,7 @@ var createArray = function(number) {
 }
 var findPrime = function(number) {
   var collection = createArray(number);
-  for (var k = 0; k < collection.length; k ++) {
+  for (var k = 0; k < collection.length; k++) {
     for(var i = 2; i < collection[k]; i++) {
       if (collection[k] % i === 0) {
         collection.splice(k, 1);
