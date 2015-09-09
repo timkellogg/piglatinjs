@@ -1,33 +1,14 @@
-describe("#translator", function() {
-  it("adds -ay to words that start with a vowel", function() {
-    var test_word = 'over';
-    expect(translator(test_word)).to.equal('overay');
-  });
-  it('moves consecutive constants to the end and adds ay', function() {
-    var test_word = 'shlep';
-    expect(translator('shlep')).to.equal('epshlay');
-  });
-  it('moves qu together', function() {
-    var test_word = 'queen';
-    expect(translator(test_word)).to.equal('eenquay');
-  });
-  it('treats y as a consonant', function() {
-    expect(translator('yes')).to.equal('esyay');
+describe('#createArray', function() {
+  it('makes an array based upon the number passed in', function() {
+    expect(createArray(2)).to.eql([1,2]);
   });
 });
 
-describe("#checkConsonant", function() {
-  it("finds a vowel", function() {
-    expect(checkConsonant('a')).to.equal(false);
+describe('#findPrime', function() {
+  it('returns [1, 2, 3] as prime from [1, 2, 3, 4]', function() {
+    expect(findPrime(4)).to.eql([1,2,3]);
   });
-
-  it('finds a consonant', function() {
-    expect(checkConsonant('c')).to.equal(true);
-  });
-});
-
-describe("#checkString", function() {
-  it("converts a string of words to Pig Latin", function() {
-    expect(checkString('This is')).to.equal("isthay isay")
+  it('returns [1..20] as prime from [1,2,3,5,7,11,13,17,19]', function() {
+    expect(findPrime(20)).to.eql([1,2,3,5,7,11,13,17,19]);
   });
 });

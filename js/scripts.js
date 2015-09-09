@@ -1,47 +1,21 @@
-var checkString = function(inputString) {
-  var finalString = '';
-  var wordArray = inputString.split(' ');
-  wordArray.forEach(function(word) {
-    finalString = finalString.concat((translator(word)) + ' ')
-    console.log(finalString);
-  });
-  return finalString.toLowerCase().trim();
+var createArray = function(number) {
+  var newArr = [];
+  var i = 1;
+  while (i <= number ) {
+    newArr.push(i);
+    i++;
+  }
+  return newArr;
 }
-var translator = function(text) {
-  var splitText = text.split('');
-
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
-  var output = text;
-  var i;
-
-  if(!checkConsonant(splitText[0])) {
-    return output.concat('ay');
-  } else {
-
-    for(i = 0; i < splitText.length; i++ ) {
-      while (checkConsonant(splitText[i])) {
-        var letter = splitText.shift();
-        if ( (letter === 'q') && (splitText[0] === 'u') ) {
-          splitText.push(letter)
-          var u = splitText.shift();
-          splitText.push(u);
-        } else {
-          splitText.push(letter)
-        }
+var findPrime = function(number) {
+  var collection = createArray(number);
+  for (var k = 0; k < collection.length; k ++) {
+    for(var i = 2; i < collection[k]; i++) {
+      if (collection[k] % i === 0) {
+        collection.splice(k, 1);
+        k --;
       }
-      i = splitText.length;
-      splitText.push('ay')
-      return splitText.join('');
     }
   }
-}
-
-var checkConsonant = function(letter) {
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
-  var check = vowels.indexOf(letter);
-  if (check === -1) {
-    return true;
-  } else {
-    return false;
-  }
+  return collection;
 }
